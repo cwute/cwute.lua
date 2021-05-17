@@ -143,8 +143,7 @@ cheat.RegisterCallback("events", function(event)
             rand = getRand()   
         if openable:GetBool() then
               local folderPath = pathToFiles:GetString() .. songName[rand + 0]
-      
-              PlaySound(folderPath:GetString()) 
+              PlaySound(pathToFiles:GetString()) 
         end
              if cursongc:GetBool() then
                 cheat.AddNotify("cwute.lua playing:", folderPath)  
