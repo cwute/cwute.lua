@@ -2,11 +2,9 @@ ffi.cdef[[
     typedef int(__fastcall* clantag_t)(const char*, const char*);
 	bool PlaySound(const char *pszSound, void *hmod, uint32_t fdwSound);
 ]]
-
 local fn_change_clantag = utils.PatternScan("engine.dll", "53 56 57 8B DA 8B F9 FF 15")
 local set_clantag = ffi.cast("clantag_t", fn_change_clantag)
 local Winmm = ffi.load("Winmm")
-
 --menu elements
 local clantagc = menu.Switch("cwute.lua", "Enable cwute clantag", false)
 local openable = menu.Switch("cwute.lua", "Enable cwute openings", false)
@@ -152,10 +150,7 @@ cheat.RegisterCallback("events", function(event)
 	
 end)
 
-
-
 local old_time = 0
-
 cheat.RegisterCallback("draw", function()
     cursongc:SetVisible(openable:GetBool())
 
