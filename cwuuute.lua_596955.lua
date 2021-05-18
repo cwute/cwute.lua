@@ -11,12 +11,16 @@ local Winmm = ffi.load("Winmm")
 local clantagc = menu.Switch("cwute.lua", "Enable cwute clantag", false)
 local openable = menu.Switch("cwute.lua", "Enable cwute openings", false)
 local cursongc = menu.Switch("cwute.lua", "Enable currently played cwute song", true)
+
 local pathToFiles = menu.TextBox("Files", "Path", 128, " ", "Example path: C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/sound/ ")
+--welcome
+local username = cheat.GetCheatUserName()
+cheat.AddNotify("Welcome to cwute.lua","cwutie ".. username)
 
 -- https://docs.microsoft.com/en-us/previous-versions/dd743680(v=vs.85)
 local function PlaySound(file)
     Winmm.PlaySound(file, nil, 0x00020003)   -- SND_ASYNC  | SND_NODEFAULT | SND_FILENAME
-end    
+end   
 
 --clantag animation
 local animation = {
@@ -32,6 +36,7 @@ local animation = {
     "cwut",
     "cwute",
 }
+
 --openings
 local curSong = {
     "Cagayake! GIRLS by Sakurakou Keion-bu",
@@ -151,6 +156,7 @@ cheat.RegisterCallback("draw", function()
      if clantagc:GetBool() then
         if old_time ~= curtime then 
             set_clantag(animation[curtime % #animation+1], animation[curtime % #animation+1])
+        
         end
            old_time = curtime
     end
