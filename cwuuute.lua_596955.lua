@@ -2,21 +2,22 @@ ffi.cdef[[
     typedef int(__fastcall* clantag_t)(const char*, const char*);
 	bool PlaySound(const char *pszSound, void *hmod, uint32_t fdwSound);
 ]]
+
 local fn_change_clantag = utils.PatternScan("engine.dll", "53 56 57 8B DA 8B F9 FF 15")
 local set_clantag = ffi.cast("clantag_t", fn_change_clantag)
 local Winmm = ffi.load("Winmm")
+
 --menu elements
 local clantagc = menu.Switch("cwute.lua", "Enable cwute clantag", false)
 local openable = menu.Switch("cwute.lua", "Enable cwute openings", false)
 local cursongc = menu.Switch("cwute.lua", "Enable currently played cwute song", true)
-
 local pathToFiles = menu.TextBox("Files", "Path", 128, " ", "Example path: C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/sound/ ")
 
 -- https://docs.microsoft.com/en-us/previous-versions/dd743680(v=vs.85)
 local function PlaySound(file)
     Winmm.PlaySound(file, nil, 0x00020003)   -- SND_ASYNC  | SND_NODEFAULT | SND_FILENAME
 end    
-
+--clantag animation
 local animation = {
     "cwute",
     "cwut",
@@ -30,11 +31,10 @@ local animation = {
     "cwut",
     "cwute",
 }
-
+--openings
 local function getRand()
     return utils.RandomInt(1, 46)
 end
---openings
 
 local curSong = {
     "Cagayake! GIRLS by Sakurakou Keion-bu",
@@ -134,20 +134,17 @@ local songName = {
     "nogame.wav",
 }
 
-
 cheat.RegisterCallback("events", function(event)
-
     if event:GetName() == "round_start" then
             rand = getRand()   
         if openable:GetBool() then
-              local folderPath = pathToFiles:GetString() .. songName[rand + 0]
-              PlaySound(pathToFiles:GetString()) 
+              folderPath = pathToFiles:GetString() .. songName[rand + 0]
+              PlaySound(folderPath) 
         end
-             if cursongc:GetBool() then
-                cheat.AddNotify("cwute.lua playing:", folderPath)  
-            end
+         if cursongc:GetBool() then
+              cheat.AddNotify("cwute.lua playing:", curSong[rand])  
+         end
     end
-	
 end)
 
 local old_time = 0
@@ -161,9 +158,8 @@ cheat.RegisterCallback("draw", function()
         if old_time ~= curtime then 
             set_clantag(animation[curtime % #animation+1], animation[curtime % #animation+1])
         
-         end
-             old_time = curtime
+        end
+           old_time = curtime
     end
-    
 
 end)
