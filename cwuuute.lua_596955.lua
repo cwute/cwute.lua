@@ -37,8 +37,6 @@ local animation = {
     "cwute",
 }
 
-local retard = 2434034030403
-
 --openings
 local curSong = {
     "Cagayake! GIRLS by Sakurakou Keion-bu",
