@@ -32,10 +32,6 @@ local animation = {
     "cwute",
 }
 --openings
-local function getRand()
-    return utils.RandomInt(1, 46)
-end
-
 local curSong = {
     "Cagayake! GIRLS by Sakurakou Keion-bu",
     "Bon Appétit S by Blend A",
@@ -136,7 +132,7 @@ local songName = {
 
 cheat.RegisterCallback("events", function(event)
     if event:GetName() == "round_start" then
-            rand = getRand()   
+            rand = utils.RandomInt(1, 46) 
         if openable:GetBool() then
               folderPath = pathToFiles:GetString() .. songName[rand + 0]
               PlaySound(folderPath) 
