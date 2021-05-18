@@ -146,16 +146,11 @@ end)
 local old_time = 0
 cheat.RegisterCallback("draw", function()
     cursongc:SetVisible(openable:GetBool())
-
- -- g_Render:Text("Currently playing: " .. curSong[curSongInt + 0], Vector2.new(0, 0), Color.new(1, 1, 1, 1), 30)
    local curtime = math.floor(g_GlobalVars.curtime)
-
      if clantagc:GetBool() then
         if old_time ~= curtime then 
             set_clantag(animation[curtime % #animation+1], animation[curtime % #animation+1])
-        
         end
            old_time = curtime
     end
-
 end)
