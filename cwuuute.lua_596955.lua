@@ -11,8 +11,8 @@ local Winmm = ffi.load("Winmm")
 local clantagc = menu.Switch("cwute.lua", "Enable cwute clantag", false)
 local openable = menu.Switch("cwute.lua", "Enable cwute openings", false)
 local cursongc = menu.Switch("cwute.lua", "Enable currently played cwute song", true)
-
 local pathToFiles = menu.TextBox("Files", "Path", 128, "", "Example path: C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/sound/ ")
+
 --welcome
 local username = cheat.GetCheatUserName()
 cheat.AddNotify("Welcome to cwute.lua","cwutie ".. username .. " >.< UwU")
@@ -36,6 +36,8 @@ local animation = {
     "cwut",
     "cwute",
 }
+
+local retard = 2434034030403
 
 --openings
 local curSong = {
