@@ -12,10 +12,10 @@ local clantagc = menu.Switch("cwute.lua", "Enable cwute clantag", false)
 local openable = menu.Switch("cwute.lua", "Enable cwute openings", false)
 local cursongc = menu.Switch("cwute.lua", "Enable currently played cwute song", true)
 
-local pathToFiles = menu.TextBox("Files", "Path", 128, " ", "Example path: C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/sound/ ")
+local pathToFiles = menu.TextBox("Files", "Path", 128, "", "Example path: C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/sound/ ")
 --welcome
 local username = cheat.GetCheatUserName()
-cheat.AddNotify("Welcome to cwute.lua","cwutie ".. username)
+cheat.AddNotify("Welcome to cwute.lua","cwutie ".. username .. " >.< UwU")
 
 -- https://docs.microsoft.com/en-us/previous-versions/dd743680(v=vs.85)
 local function PlaySound(file)
