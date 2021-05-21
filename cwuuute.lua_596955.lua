@@ -17,6 +17,10 @@ local pathToFiles = menu.TextBox("Files", "Path", 128, "", "Example path: C:/Pro
 local username = cheat.GetCheatUserName()
 if(username == "Exlodium") then
 cheat.AddNotify("Welcome to cwute.lua","edater exwo>.< UwU")
+else 
+cheat.AddNotify("Welcome to cwute.lua", "cwute "..username..">.< UwU")end
+	
+	
 	
 
 
