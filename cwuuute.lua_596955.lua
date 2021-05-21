@@ -15,7 +15,12 @@ local pathToFiles = menu.TextBox("Files", "Path", 128, "", "Example path: C:/Pro
 
 --welcome
 local username = cheat.GetCheatUserName()
-cheat.AddNotify("Welcome to cwute.lua","cwutie ".. username .. " >.< UwU")
+if(username == "Exlodium") then
+cheat.AddNotify("Welcome to cwute.lua","edater exwo>.< UwU")
+	
+
+
+
 
 -- https://docs.microsoft.com/en-us/previous-versions/dd743680(v=vs.85)
 local function PlaySound(file)
