@@ -18,13 +18,8 @@ local username = cheat.GetCheatUserName()
 if(username == "Exlodium") then
 cheat.AddNotify("Welcome to cwute.lua","edater exwo>.< UwU")
 else 
-cheat.AddNotify("Welcome to cwute.lua", "cwute "..username..">.< UwU")end
-	
-	
-	
-
-
-
+cheat.AddNotify("Welcome to cwute.lua", "cwute "..username..">.< UwU")
+end
 
 -- https://docs.microsoft.com/en-us/previous-versions/dd743680(v=vs.85)
 local function PlaySound(file)
