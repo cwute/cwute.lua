@@ -14,8 +14,12 @@ local cursongc = menu.Switch("cwute.lua", "Enable currently played cwute song", 
 local pathToFiles = menu.TextBox("Files", "Path", 128, "", "Example path: C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/sound/ ")
 
 --welcome
-local username = cheat.GetCheatUserName()
-cheat.AddNotify("Welcome to cwute.lua","cwutie ".. username .. " >.< UwU")
+username = cheat.GetCheatUserName()
+if(username == "Exlodium") then
+cheat.AddNotify("Welcome to cwute.lua"," edater exwo>.< UwU")
+else 
+cheat.AddNotify("Welcome to cwute.lua", "cwute "..username.." >.< UwU")
+end
 
 -- https://docs.microsoft.com/en-us/previous-versions/dd743680(v=vs.85)
 local function PlaySound(file)
@@ -160,4 +164,13 @@ cheat.RegisterCallback("draw", function()
         end
            old_time = curtime
     end
+end)
+
+-- water mark very pp and sexy af
+local username2 = cheat.GetCheatUserName()
+local text = "Cwute.Lwua | " .. username2 .. "  " 
+cheat.RegisterCallback("draw", function()
+    g_Render:Text(text, Vector2.new(1800, 20), Color.new(1, 1, 1, 1), 12)
+    g_Render:Line(Vector2.new(1800, 34), Vector2.new(1895, 34), Color.new(227/255, 27/255, 209/255, 1))
+
 end)
