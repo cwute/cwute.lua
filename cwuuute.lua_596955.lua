@@ -153,7 +153,15 @@ cheat.RegisterCallback("events", function(event)
 end)
 
 local old_time = 0
+-- water mark very p and sexy af
+local username2 = cheat.GetCheatUserName()
+local text = "Cwute.Lwua | " .. username2 .. "  " 
 cheat.RegisterCallback("draw", function()
+    g_Render:Text(text, Vector2.new(1800, 20), Color.new(1, 1, 1, 1), 12)
+    g_Render:Line(Vector2.new(1800, 34), Vector2.new(1860, 34), Color.new(255/255, 255/255, 255/255, 1))
+    g_Render:Line(Vector2.new(1860, 34), Vector2.new(1895, 34), Color.new(255/255, 23/255, 31/255, 1))
+
+    --clantag part
     cursongc:SetVisible(openable:GetBool())
    local curtime = math.floor(g_GlobalVars.curtime)
      if clantagc:GetBool() then
@@ -163,13 +171,5 @@ cheat.RegisterCallback("draw", function()
         end
            old_time = curtime
     end
-end)
-
--- water mark very pp and sexy af
-local username2 = cheat.GetCheatUserName()
-local text = "Cwute.Lwua | " .. username2 .. "  " 
-cheat.RegisterCallback("draw", function()
-    g_Render:Text(text, Vector2.new(1800, 20), Color.new(1, 1, 1, 1), 12)
-    g_Render:Line(Vector2.new(1800, 34), Vector2.new(1895, 34), Color.new(227/255, 27/255, 209/255, 1))
 
 end)
